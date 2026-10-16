@@ -1,2 +1,275 @@
-Nishanthana Suseekaran 
-oi sjdjdjjejfskskek
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nishanthan Suseekaran | Personal Website</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #071b35;
+  color: white;
+}
+
+header {
+  min-height: 100vh;
+  background:
+    linear-gradient(90deg, rgba(3,15,35,.95),
+    rgba(3,15,35,.55)),
+    url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1800&q=85")
+    center/cover no-repeat;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 8%;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #70d6ff;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 8px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 35px;
+  padding: 100px 8%;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 560px;
+}
+
+.hero-text h3 {
+  color: #70d6ff;
+  font-size: 24px;
+}
+
+.hero-text h1 {
+  font-size: clamp(36px, 6vw, 64px);
+  margin: 15px 0;
+}
+
+.hero-text p {
+  line-height: 1.8;
+  color: #e1eaf5;
+}
+
+.subtitle {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.profile-photo {
+  width: 260px;
+  height: 300px;
+  object-fit: cover;
+  border: 4px solid #70d6ff;
+  border-radius: 20px;
+  background: #173655;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 13px 24px;
+  background: #70d6ff;
+  color: #071b35;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+section {
+  padding: 70px 8%;
+}
+
+section h2 {
+  color: #70d6ff;
+  margin-bottom: 25px;
+  font-size: 32px;
+}
+
+.card {
+  background: #102b49;
+  padding: 25px;
+  margin: 15px 0;
+  border-radius: 14px;
+  border: 1px solid #244765;
+  line-height: 1.9;
+}
+
+.card h3 {
+  color: #70d6ff;
+  margin-bottom: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #031020;
+  color: #d5e3f2;
+}
+
+@media (max-width: 600px) {
+  nav {
+    justify-content: center;
+  }
+
+  .hero {
+    padding-top: 60px;
+    text-align: center;
+  }
+
+  .profile-photo {
+    width: 220px;
+    height: 250px;
+  }
+
+  section {
+    padding: 50px 6%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header id="home">
+  <nav>
+    <div class="logo">Nishanthan Suseekaran</div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#dream">My Dream</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-text">
+      <h3>Hello, Welcome to My Website</h3>
+      <h1>Nishanthan Suseekaran</h1>
+      <p class="subtitle">Aspiring Pilot | Lifelong Learner</p>
+      <p>
+        Driven by dreams, guided by discipline,
+        working towards a future in aviation.
+      </p>
+      <a class="btn" href="#about">Discover My Story</a>
+    </div>
+
+    <div>
+      <img class="profile-photo"
+           src="nishanthan.jpg"
+           alt="Nishanthan Suseekaran">
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      My name is Nishanthan Suseekaran.
+      I am from Sri Lanka. Since childhood,
+      my dream has been to become a pilot.
+      I believe in hard work, learning and
+      moving forward towards my dreams.
+    </p>
+    <p>Location: Kaluwanchikudy, Batticaloa, Sri Lanka</p>
+    <p>My Goal: To pursue a career in aviation.</p>
+  </div>
+</section>
+
+<section id="education">
+  <h2>My Education</h2>
+
+  <div class="card">
+    <h3>Primary Education</h3>
+    <p>Kannapuram Primary School</p>
+    <p>2003–2006</p>
+  </div>
+
+  <div class="card">
+    <h3>General Education</h3>
+    <p>Kannagipuram Vinayahar Vidiyalayam, Mahiloor</p>
+    <p>2006–2014</p>
+    <p>Subjects: Tamil, Mathematics, English,
+    Science, History, Art, Geography and Drama.</p>
+  </div>
+
+  <div class="card">
+    <h3>Smart Class Education</h3>
+    <p>BT/PD/Paddiruppu Madhya Maha Vidyalayam,
+    Kaluwanchikudy</p>
+    <p>2019–2020</p>
+    <p>Subjects: Electrical, Textile,
+    Graphic Design and ICT.</p>
+  </div>
+</section>
+
+<section id="dream">
+  <h2>My Dream: Become a Pilot</h2>
+  <div class="card">
+    <h3>My Aviation Journey</h3>
+    <p>
+      Aviation has always inspired me.
+      I want to learn about aircraft,
+      cockpit instruments, flight operations
+      and the knowledge needed to pursue
+      professional pilot training.
+    </p>
+    <p>Every day is an opportunity to learn something new.</p>
+  </div>
+</section>
+
+<section id="family">
+  <h2>My Family</h2>
+  <div class="card">
+    <p>
+      My family is an important part of my life.
+      Their love, support and memories mean a lot to me.
+    </p>
+    <p>Family photographs and stories will be added here.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card">
+    <p>Name: Nishanthan Suseekaran</p>
+    <p>Location: Sri Lanka</p>
+    <p>Email: Add your email address here.</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Nishanthan Suseekaran | Personal Website</p>
+  <p>Dream Big. Keep Learning. Fly High.</p>
+</footer>
+
+</body>
+</html>
