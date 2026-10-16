@@ -195,7 +195,7 @@ footer {
     <p>
       My name is Nishanthan Suseekaran.
       I am from Sri Lanka. Since childhood,
-      my dream has been to become a pilot.
+      my dream has been to become a electrical engineer .
       I believe in hard work, learning and
       moving forward towards my dreams.
     </p>
@@ -209,7 +209,7 @@ footer {
 
   <div class="card">
     <h3>Primary Education</h3>
-    <p>Kannapuram Primary School</p>
+    <p>35 village Kannapuram Primary School</p>
     <p>2003–2006</p>
   </div>
 
@@ -258,11 +258,12 @@ footer {
 </section>
 
 <section id="contact">
-  <h2>Contact+974756652873.</h2>
+  <h2>Contact</h2>
   <div class="card">
     <p>Name: Nishanthan Suseekaran</p>
     <p>Location: 63/35 village kaluwanchikudiy Sri Lanka</p>
     <p>Email: nishanthan200102@gmail.com.</p>
+    </p>what's app +94756652873
   </div>
 </section>
 
