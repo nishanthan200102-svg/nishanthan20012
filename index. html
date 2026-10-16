@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+<html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -261,8 +261,8 @@ footer {
   <h2>Contact</h2>
   <div class="card">
     <p>Name: Nishanthan Suseekaran</p>
-    <p>Location: Sri Lanka</p>
-    <p>Email: Add your email address here.</p>
+    <p>Location: 63/35 village kaluwanchikudiy Sri Lanka</p>
+    <p>Email: nishanthan200102@gmail.com.</p>
   </div>
 </section>
 
