@@ -36,7 +36,7 @@
     <section class="hero-section">
         <div class="hero-content">
             <div class="profile-container">
-                <!-- உங்கள் போட்டோ பெயரைக் கொடுக்கவும் (எ.கா: profile.jpg) -->
+            IMG_20260924_071849.jpg (: profile.jpg) -->
                 <img src="profile.jpg" alt="Nishanthan Suseekaran" class="profile-img">
             </div>
             <div class="intro-text">
