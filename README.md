@@ -123,9 +123,9 @@ a
   <div class="card">
     <h3>Basic Education – Primary School</h3>
     <p><strong>School:</strong> Kannapuram Primary School</p>
-<p><img src="photo1.jpg" alt="School Photo 1" style="max-width:100%; height:auto;"></p>
+<p><img src="IMG_20261017_152959.jpg" alt="School Photo 1" style="max-width:100%; height:auto;"></p>
 <p><strong>Address:</strong> 35 Village, Kannapuram, Vaikala</p>
-<p><img src="photo2.jpg" alt="School Photo 2" style="max-width:100%; height:auto;"></p>
+<p><img src="IMG_20261017_153208.jpg" alt="School Photo 2" style="max-width:100%; height:auto;"></p>
 <p><strong>Years:</strong> 2003-2006</p>
     <p>My primary education helped me develop reading, writing, mathematics and general learning skills. I also enjoyed sports and school activities. I am grateful to my teachers for their guidance and encouragement.</p>
   </div>
