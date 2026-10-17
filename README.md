@@ -87,8 +87,7 @@ section{padding:20px}
     <a class="button" href="#about">About Me</a>
     <a class="button" href="#dream">My Dream</a>
     <a class="button cv-button"
-       href="CV_VATHANARUBAN_RETNAM_MAHALINGAM.pdf"
-       download>Download My CV ↓</a>
+       href="CV_Nishan.pdf"Nishan.pdf↓</a>
   </div>
 
   <div class="contact-mini">
