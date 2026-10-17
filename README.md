@@ -94,8 +94,8 @@ section{padding:20px}
 
   <div class="contact-mini">
     <strong>Contact Me</strong>
-    <p>Email: <a href="mailto:YOUR_EMAIL@example.com">Add Your Email</a></p>
-    <p>Phone: <a href="tel:YOUR_PHONE_NUMBER">Add Your Phone Number</a></p>
+    <p>Email: <a href="mailto:YOUR_nishanthan200102@gmail.com">Add Your Email</a></p>
+    <p>Phone: <a href="tel:+94756652873">Add Your Phone Number</a></p>
   </div>
 </div>
 
@@ -190,10 +190,10 @@ section{padding:20px}
   <p>Thank you for visiting my personal website.</p>
   <div class="card">
     <p><strong>Email:</strong>
-      <a class="contact-link" href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a>
+      <a class="contact-link" href="mailto:nishanthan200102@gmail.com">YOUR_EMAIL@example.com</a>
     </p>
     <p><strong>Phone:</strong>
-      <a class="contact-link" href="tel:YOUR_PHONE_NUMBER">YOUR_PHONE_NUMBER</a>
+      <a class="contact-link" href="tel:+94756652873">YOUR_PHONE_NUMBER</a>
     </p>
     <p><strong>Website:</strong>
       <a class="contact-link"
