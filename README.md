@@ -129,7 +129,7 @@ a
         <p><strong>Years:</strong> 2003-2006</p>
     </div>
     <div style="flex-shrink: 0;">
-        <img src="photo1.jpg" alt="School Photo" style="width: 150px; height: auto; border-radius: 8px; object-fit: cover;">
+        <img src="IMG_20261017_152959.jpg" alt="School Photo" style="width: 150px; height: auto; border-radius: 8px; object-fit: cover;">
     </div>
 </div>
 <p><strong>Years:</strong> 2003-2006</p>
