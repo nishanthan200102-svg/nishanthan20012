@@ -140,8 +140,30 @@ a
     <h3>General Education</h3>
     <p><strong>School:</strong> Kannagipuram Vinayahar Vidiyalayam</p>
     <p><strong>Location:</strong> Mahiloor, Kaluwanchikudy, Sri Lanka</p>
-    <p><strong>Years:</strong> 2006–2017</p>
-    <p><strong>Subjects studied:</strong></p>
+    <p><strong>Years:</strong> 2006-2017</p>
+
+<div style="display: flex; gap: 10px; margin: 15px 0; justify-content: start; flex-wrap: wrap;">
+    <img src="photo1.jpg" alt="Photo 1" onclick="openModal(this.src)" style="width: 80px; height: 100px; object-fit: cover; border-radius: 4px; border: 1px solid #ccc; cursor: pointer;">
+    <img src="photo2.jpg" alt="Photo 2" onclick="openModal(this.src)" style="width: 80px; height: 100px; object-fit: cover; border-radius: 4px; border: 1px solid #ccc; cursor: pointer;">
+    <img src="photo3.jpg" alt="Photo 3" onclick="openModal(this.src)" style="width: 80px; height: 100px; object-fit: cover; border-radius: 4px; border: 1px solid #ccc; cursor: pointer;">
+    <img src="photo4.jpg" alt="Photo 4" onclick="openModal(this.src)" style="width: 80px; height: 100px; object-fit: cover; border-radius: 4px; border: 1px solid #ccc; cursor: pointer;">
+</div>
+
+<div id="imgModal" onclick="closeModal()" style="display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center; cursor: pointer;">
+    <img id="modalImage" style="max-width: 90%; max-height: 90%; border-radius: 8px;">
+</div>
+
+<script>
+function openModal(src) {
+    document.getElementById('modalImage').src = src;
+    document.getElementById('imgModal').style.display = 'flex';
+}
+function closeModal() {
+    document.getElementById('imgModal').style.display = 'none';
+}
+</script>
+
+<p><strong>Subjects studied:</strong></p>
     <ul>
       <li>Tamil</li>
       <li>Mathematics</li>
