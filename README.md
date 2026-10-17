@@ -189,10 +189,10 @@ section{padding:20px}
   <p>Thank you for visiting my personal website.</p>
   <div class="card">
     <p><strong>Email:</strong>
-      <a class="contact-link" href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a>
+      <a class="contact-link" href="mailto:nishanthan200102@gmail.com">nishanthan200102@gmail.com</a>
     </p>
     <p><strong>Phone:</strong>
-      <a class="contact-link" href="tel:YOUR_PHONE_NUMBER">YOUR_PHONE_NUMBER</a>
+      <a class="contact-link" href="tel:+94756652873">+94756652873</a>
     </p>
     <p><strong>Website:</strong>
       <a class="contact-link"
