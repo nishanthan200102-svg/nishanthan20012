@@ -65,7 +65,7 @@ section{padding:20px}
 <div class="hero" id="home">
 
   <img class="profile"
-       src="IMG-20261016-WA0009.jpg"
+       src="IMG_20260924_071849.jpg"
        alt="Nishanthan Suseekaran profile photo"
        onerror="this.alt='Profile photo file not found'">
 
