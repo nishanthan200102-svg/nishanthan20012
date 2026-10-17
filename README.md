@@ -96,7 +96,10 @@ section{padding:20px}
     <p>Email: <a href="mailto:nishanthan200102@gmail.com">nishanthan200102@gmail.com</a></p>
     <p>Phone: <a href="tel:+94756652873">+94756652873</a></p>
     <p>WhatsApp: <a
-href="https://wa.me/+94756652873" target="_blank"Chat on Whatsapp </a<>/p>
+
+href="https://wa.me/+94756652873" target="_blank">
+
+Chat on WhatsApp</a></p>
   </div>
 </div>
 
