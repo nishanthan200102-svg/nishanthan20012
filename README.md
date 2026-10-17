@@ -93,8 +93,8 @@ section{padding:20px}
 
   <div class="contact-mini">
     <strong>Contact Me</strong>
-    <p>Email: <a href="nishanthan200102@gmail.com">Add Your Email</a></p>
-    <p>Phone: <a href="+94756652873">Add Your Phone Number</a></p>
+    <p>Email: <a href="mailto:nishanthan200102@gmail.com">nishanthan200102@gmail.com</a></p>
+    <p>Phone: <a href="tel:+94756652873">+94756652873</a></p>
   </div>
 </div>
 
