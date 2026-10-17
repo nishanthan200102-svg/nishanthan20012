@@ -1,5 +1,4 @@
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -94,7 +93,7 @@ section{padding:20px}
 
   <div class="contact-mini">
     <strong>Contact Me</strong>
-    <p>Email: <a href="mailto:YOUR_nishanthan200102@gmail.com">Add Your Email</a></p>
+    <p>Email: <a href="mailto:nishanthan200102@gmail.com">Add Your Email</a></p>
     <p>Phone: <a href="tel:+94756652873">Add Your Phone Number</a></p>
   </div>
 </div>
