@@ -1,48 +1,144 @@
-
-<html lang="en">
+ <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nishanthan Suseekaran | Personal Website</title>
-<meta name="description" content="Nishanthan Suseekaran's personal profile, education, work experience, family and dream of becoming a pilot.">
+
+<title>Nishanthan Suseekaran | My Gallery</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:Arial,sans-serif;background:#f1f5fa;color:#172033;line-height:1.7}
-header{background:#071b35;color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.logo{font-size:20px;font-weight:bold}
-nav{display:flex;flex-wrap:wrap;gap:14px}
-nav a{color:white;text-decoration:none;font-size:14px}
-nav a:hover{color:#8ddfff}
-.hero{position:relative;background:linear-gradient(135deg,#071b35,#164e79);color:white;padding:40px 6%;padding-left:180px;min-height:330px}
+* {
+  box-sizing: border-box;
+}
 
-/* Profile photo moved to the LEFT */
-.profile{position:absolute;top:35px;left:6%;width:140px;height:140px;object-fit:cover;object-position:center;border-radius:15px;border:4px solid white;background:#dceeff}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #071426;
+  color: white;
+}
 
-.hero h1{font-size:clamp(25px,5vw,40px);margin-bottom:5px}
-.hero p{margin:6px 0}
-.location-link{color:#d5f4ff;text-decoration:underline}
-.tag{display:inline-block;border:1px solid #8ddfff;border-radius:25px;padding:5px 14px;margin-top:12px}
-.button{display:inline-block;background:white;color:#071b35;text-decoration:none;padding:10px 16px;border-radius:8px;margin:14px 7px 0 0;font-weight:bold}
-.cv-button{background:#8ddfff}
-.contact-mini{margin-top:14px;font-size:14px;overflow-wrap:anywhere}
-.contact-mini a{color:#d5f4ff}
-main{max-width:1000px;margin:auto;padding:25px 16px}
-section{background:white;padding:25px;margin:22px 0;border-radius:14px;box-shadow:0 4px 15px rgba(0,0,0,.05);scroll-margin-top:20px}
-section h2{color:#104a76;margin-bottom:12px;font-size:24px}
-.card{border-left:4px solid #7a28b8;padding:14px 16px;margin-top:15px;background:#f5f9fd;border-radius:5px}
-.dream{background:#eaf6ff;border-left:4px solid #1683bd}
-.family-link,.contact-link{color:#075b91;font-weight:bold;overflow-wrap:anywhere}
-ul{padding-left:22px}
-footer{text-align:center;background:#071b35;color:white;padding:25px 15px;margin-top:25px}
+header {
+  text-align: center;
+  padding: 28px 15px;
+  background: linear-gradient(135deg, #102d50, #641e40);
+}
 
-@media(max-width:600px){
-header{justify-content:center;text-align:center}
-nav{justify-content:center}
-.hero{padding:25px 20px;text-align:left}
-.profile{position:static;display:block;width:115px;height:115px;margin:0 0 18px 0}
-section{padding:20px}
+header h1 {
+  margin-bottom: 10px;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+.panel {
+  background: #10243c;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 22px;
+}
+
+input, textarea, button {
+  font: inherit;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #47617e;
+}
+
+input, textarea {
+  width: 100%;
+  margin: 8px 0;
+  background: #f8fafc;
+  color: #111827;
+}
+
+button, .back {
+  background: #d94686;
+  color: white;
+  border: 0;
+  cursor: pointer;
+  padding: 12px 17px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px 3px;
+}
+
+button:hover, .back:hover {
+  background: #a92562;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+#gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 15px;
+}
+
+.photo-card {
+  background: #10243c;
+  padding: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.photo-card h3,
+.photo-card p {
+  overflow-wrap: anywhere;
+}
+
+.photo-card h3 {
+  font-size: 16px;
+}
+
+.photo-card p {
+  color: #d6e2f0;
+}
+
+#status {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: #fcd34d;
+}
+
+#viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.92);
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+#viewer img {
+  max-width: 96%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #cbd5e1;
 }
 </style>
 </head>
@@ -50,199 +146,295 @@ section{padding:20px}
 <body>
 
 <header>
-  <div class="logo">Nishanthan Suseekaran</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About Me</a>
-    <a href="#education">Education</a>
-    <a href="#work">Work</a>
-    <a href="#dream">My Dream</a>
-    <a href="#family">My Family</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <h1>📸 Gallery</h1>
+  <p>Nishanthan Suseekaran</p>
+  <p>Welcome to My Online Gallery</p>
+  <a class="back" href="index.html">← Back to Home</a>
 </header>
 
-<div class="hero" id="home">
-
-  <img class="profile"
-       src="IMG_20260924_071849.jpg"
-       alt="Nishanthan Suseekaran profile photo"
-       onerror="this.alt='Profile photo file not found'">
-
-  <h1>Nishanthan Suseekaran</h1>
-  <p>Welcome to My Personal Website</p>
-  <p>My Life • My Education • My Work • My Dreams</p>
-
-  <p><strong>My Location:</strong>
-    <a class="location-link"
-       href="https://www.google.com/maps/search/?api=1&query=Kaluwanchikudy%2C+Batticaloa%2C+Sri+Lanka"
-       target="_blank" rel="noopener noreferrer">
-       Kaluwanchikudy, Batticaloa, Sri Lanka 📍
-    </a>
-  </p>
-
-  <span class="tag">Dreaming of Becoming a Pilot ✈️</span>
-
-  <div>
-    <a class="button" href="#about">About Me</a>
-    <a class="button" href="#dream">My Dream</a>
-    <a class="button cv-button"
-      href="CV_Nishan.pdf"
-       download>Download My CV ↓</a>
-  </div>
-
-  <div class="contact-mini">
-    <strong>Contact Me</strong>
-    <p>Email: <a href="mailto:nishanthan200102@gmail.com">nishanthan200102@gmail.com</a></p>
-    <p>Phone: <a href="tel:+94756652873">+94756652873</a></p>
-    <p>WhatsApp: <a
-href="https://wa.me/+94756652873" target="_blank">
-Chat on WhatsApp</a></p>
-  </div>
-</div>
-a
 <main>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>Hello! I'm Nishanthan Suseekaran, from Sri Lanka. My childhood dream is to become a pilot. Although I faced challenges and lacked opportunities and resources to study aviation, my dream is still alive. I continue learning step by step and working towards a better future.</p>
-  <p>This website shares my life, education, work experience, family memories and dreams.</p>
-  <div class="card">
-    <strong>My Location</strong>
-    <p><a class="contact-link"
-      href="https://www.google.com/maps/search/?api=1&query=Kaluwanchikudy%2C+Batticaloa%2C+Sri+Lanka"
-      target="_blank" rel="noopener noreferrer">
-      Kaluwanchikudy, Batticaloa, Sri Lanka — Open Google Maps 📍
-    </a></p>
-  </div>
+<section class="panel">
+  <h2>➕ Upload Photos</h2>
+  <p>Upload photos to share them in the online gallery.</p>
+
+  <label for="photos">Choose photos</label>
+  <input id="photos" type="file" accept="image/*" multiple>
+
+  <label for="photoTitle">Photo title</label>
+  <input id="photoTitle" type="text"
+         maxlength="150" placeholder="Enter photo title">
+
+  <label for="photoDescription">Photo description</label>
+  <textarea id="photoDescription"
+            maxlength="1000"
+            placeholder="Write your memories here"></textarea>
+
+  <button id="uploadButton" type="button">
+    📤 Add Selected Photos
+  </button>
+
+  <button id="refreshButton" type="button">
+    🔄 Refresh Gallery
+  </button>
+
+  <p id="status" role="status" aria-live="polite">
+    Connecting to online gallery...
+  </p>
 </section>
 
-<section id="education">
-  <h2>Education</h2>
-
-  <div class="card">
-    <h3>Basic Education – Primary School</h3>
-    <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
-    <div style="flex: 1;">
-        <p><strong>School:</strong> Kannapuram Primary School</p>
-        <p><strong>Address:</strong> 35 Village, Kannapuram, Vaikala</p>
-        <p><strong>Years:</strong> 2003-2006</p>
-    </div>
-    <div style="flex-shrink: 0;">
-        <img src="IMG_20261017_152959.jpg" alt="School Photo" style="width: 150px; height: auto; border-radius: 8px; object-fit: cover;">
-    </div>
-</div>
-<p><strong>Years:</strong> 2003-2006</p>
-    <p>My primary education helped me develop reading, writing, mathematics and general learning skills. I also enjoyed sports and school activities. I am grateful to my teachers for their guidance and encouragement.</p>
-  </div>
-
-  <div class="card">
-    <h3>General Education</h3>
-    <p><strong>School:</strong> Kannagipuram Vinayahar Vidiyalayam</p>
-    <p><strong>Location:</strong> Mahiloor, Kaluwanchikudy, Sri Lanka</p>
-    <p><strong>Years:</strong> 2006-2017</p>
-
-<div style="display: flex; gap: 10px; margin: 15px 0; justify-content: start; flex-wrap: wrap;">
-    <img src="photo1.jpg" alt="Photo 1" onclick="openModal(this.src)" style="width: 80px; height: 100px; object-fit: cover; border-radius: 4px; border: 1px solid #ccc; cursor: pointer;">
-    <img src="photo2.jpg" alt="Photo 2" onclick="openModal(this.src)" style="width: 80px; height: 100px; object-fit: cover; border-radius: 4px; border: 1px solid #ccc; cursor: pointer;">
-    <img src="photo3.jpg" alt="Photo 3" onclick="openModal(this.src)" style="width: 80px; height: 100px; object-fit: cover; border-radius: 4px; border: 1px solid #ccc; cursor: pointer;">
-    <img src="photo4.jpg" alt="Photo 4" onclick="openModal(this.src)" style="width: 80px; height: 100px; object-fit: cover; border-radius: 4px; border: 1px solid #ccc; cursor: pointer;">
-</div>
-
-<div id="imgModal" onclick="closeModal()" style="display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center; cursor: pointer;">
-    <img id="modalImage" style="max-width: 90%; max-height: 90%; border-radius: 8px;">
-</div>
-
-<script>
-function openModal(src) {
-    document.getElementById('modalImage').src = src;
-    document.getElementById('imgModal').style.display = 'flex';
-}
-function closeModal() {
-    document.getElementById('imgModal').style.display = 'none';
-}
-</script>
-
-<p><strong>Subjects studied:</strong></p>
-    <ul>
-      <li>Tamil</li>
-      <li>Mathematics</li>
-      <li>English</li>
-      <li>Science</li>
-      <li>History</li>
-      <li>Art</li>
-      <li>Geography</li>
-      <li>Drama</li>
-    </ul>
-    <p><strong>Examination:</strong> G.C.E. O/L Examination</p>
-    <p><em>Please verify the examination year before publishing.</em></p>
-  </div>
-
-  <div class="card">
-    <h3>Higher Education – Smart Class</h3>
-    <p><strong>School:</strong> BT/PD/Paddiruppu Madya Maha Vidyalayam</p>
-    <p><strong>Location:</strong> Kaluwanchikudy, Sri Lanka</p>
-    <p><strong>Years:</strong> 2019–2020</p>
-    <p><strong>Smart Class subjects:</strong></p>
-    <ul>
-      <li>Electrical</li>
-      <li>Textile</li>
-      <li>Graphic Design</li>
-      <li>Information and Communication Technology (ICT)</li>
-    </ul>
-  </div>
-</section>
-
-<section id="work">
-  <h2>Work Experience</h2>
-  <div class="card">
-    <h3>Work Experience in Qatar</h3>
-    <p><strong>Company:</strong> Axona</p>
-    <p><strong>Duration:</strong> 9 months</p>
-    <p>My work experience has helped me develop responsibility, discipline, practical skills and a strong work ethic.</p>
-  </div>
-</section>
-
-<section id="dream" class="dream">
-  <h2>My Dream – To Become a Pilot ✈️</h2>
-  <p>Since childhood, I have dreamed of becoming a pilot. Although I did not have the opportunity and resources to study aviation earlier, my dream remains important to me.</p>
-  <p>I am learning about aircraft, flight controls, aviation knowledge and flying step by step.</p>
-  <p>I believe that learning, patience and determination can help me move closer to my dream.</p>
-</section>
-
-<section id="family">
-  <h2>My Family</h2>
-  <p>My family is an important part of my life. This page is dedicated to family love, photographs and special memories.</p>
-  <p>Family photographs and names can be added to the separate family page.</p>
-  <a class="family-link" href="my-family.html">Visit My Family Page →</a>
-</section>
-
-<section id="contact">
-  <h2>Contact Me</h2>
-  <p>Thank you for visiting my personal website.</p>
-  <div class="card">
-    <p><strong>Email:</strong>
-      <a class="contact-link" href="mailto:nishanthan200102@gmail.com">nishanthan200102@gmail.com</a>
-    </p>
-    <p><strong>Phone:</strong>
-      <a class="contact-link" href="tel:+94756652873">+94756652873</a>
-    </p>
-    <p><strong>Website:</strong>
-      <a class="contact-link"
-         href="https://nishanthan-ur.github.io/nishanthan20012/"
-         target="_blank" rel="noopener noreferrer">
-         Visit My Website
-      </a>
-    </p>
-  </div>
+<section>
+  <h2>🖼️ Photos</h2>
+  <p id="count">Loading photos...</p>
+  <div id="gallery"></div>
 </section>
 
 </main>
 
+<div id="viewer" role="dialog" aria-modal="true"
+     aria-label="Photo viewer">
+  <button id="closeViewer" type="button">✕ Close</button>
+  <img id="largePhoto" alt="Selected gallery photo">
+  <p id="largeTitle"></p>
+</div>
+
 <footer>
-  <p>© 2026 Nishanthan Suseekaran</p>
-  <p>My Life • My Journey • My Dreams ✈️</p>
+  © 2026 Nishanthan Suseekaran
+  <p>nishanthan200102@gmail.com</p>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+"use strict";
+
+/* ENTER YOUR OWN SUPABASE DETAILS HERE */
+const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
+const SUPABASE_KEY = "YOUR_SUPABASE_PUBLISHABLE_KEY";
+const BUCKET = "gallery-photos";
+
+const $ = id => document.getElementById(id);
+
+const photoInput = $("photos");
+const titleInput = $("photoTitle");
+const descriptionInput = $("photoDescription");
+const uploadButton = $("uploadButton");
+const refreshButton = $("refreshButton");
+const gallery = $("gallery");
+const countText = $("count");
+const statusText = $("status");
+
+let db = null;
+let isLoading = false;
+
+function status(message) {
+  statusText.textContent = message;
+}
+
+function initialize() {
+  if (
+    SUPABASE_URL.startsWith("YOUR_") ||
+    SUPABASE_KEY.startsWith("YOUR_")
+  ) {
+    status("Setup needed: Add your Supabase Project URL and Publishable Key.");
+    countText.textContent = "Online storage not configured";
+    return;
+  }
+
+  if (!window.supabase) {
+    status("Supabase library unavailable. Check your internet connection.");
+    return;
+  }
+
+  db = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+  loadPhotos();
+}
+
+function publicPhotoURL(path) {
+  const result = db.storage
+    .from(BUCKET)
+    .getPublicUrl(path);
+
+  return result.data.publicUrl;
+}
+
+function showPhoto(url, title) {
+  $("largePhoto").src = url;
+  $("largeTitle").textContent = title || "My Photo";
+  $("viewer").style.display = "flex";
+}
+
+function closePhoto() {
+  $("viewer").style.display = "none";
+  $("largePhoto").src = "";
+}
+
+function renderPhotos(rows) {
+  gallery.replaceChildren();
+
+  countText.textContent =
+    rows.length + (rows.length === 1 ? " photo" : " photos");
+
+  rows.forEach(photo => {
+    const card = document.createElement("article");
+    card.className = "photo-card";
+
+    const img = document.createElement("img");
+    img.src = publicPhotoURL(photo.file_path);
+    img.alt = photo.title || "Gallery photo";
+    img.loading = "lazy";
+
+    img.addEventListener("click", () => {
+      showPhoto(img.src, photo.title);
+    });
+
+    img.addEventListener("error", () => {
+      img.alt = "Photo unavailable";
+    });
+
+    const title = document.createElement("h3");
+    title.textContent = photo.title || "My Photo";
+
+    const description = document.createElement("p");
+    description.textContent = photo.description || "";
+
+    card.append(img, title, description);
+    gallery.append(card);
+  });
+}
+
+async function loadPhotos() {
+  if (!db || isLoading) return;
+
+  isLoading = true;
+  refreshButton.disabled = true;
+  status("Loading shared online photos...");
+
+  try {
+    const { data, error } = await db
+      .from("gallery_photos")
+      .select("id,title,description,file_path,created_at")
+      .order("created_at", { ascending: false })
+      .limit(500);
+
+    if (error) throw error;
+
+    renderPhotos(data || []);
+    status("Gallery updated successfully.");
+  } catch (error) {
+    status("Could not load photos: " + error.message);
+  } finally {
+    isLoading = false;
+    refreshButton.disabled = false;
+  }
+}
+
+async function uploadPhotos() {
+  if (!db) {
+    status("Supabase setup is incomplete. Add the URL and key first.");
+    return;
+  }
+
+  const files = Array.from(photoInput.files || [])
+    .filter(file => file.type.startsWith("image/"));
+
+  if (!files.length) {
+    status("Please select at least one photo.");
+    return;
+  }
+
+  if (files.some(file => file.size > 5 * 1024 * 1024)) {
+    status("Each photo must be 5 MB or smaller.");
+    return;
+  }
+
+  uploadButton.disabled = true;
+  let uploaded = 0;
+  const errors = [];
+
+  try {
+    for (const file of files) {
+      status("Uploading " + file.name + "...");
+
+      const safeName = file.name.replace(
+        /[^a-zA-Z0-9._-]/g, "_"
+      );
+
+      const path =
+        Date.now() + "-" +
+        Math.random().toString(36).slice(2) +
+        "-" + safeName;
+
+      const { data: stored, error: storageError } =
+        await db.storage
+          .from(BUCKET)
+          .upload(path, file, {
+            contentType: file.type,
+            upsert: false
+          });
+
+      if (storageError) {
+        errors.push(file.name + ": " + storageError.message);
+        continue;
+      }
+
+      const { error: rowError } = await db
+        .from("gallery_photos")
+        .insert({
+          title: titleInput.value.trim() || file.name,
+          description: descriptionInput.value.trim(),
+          file_path: stored.path
+        });
+
+      if (rowError) {
+        errors.push(file.name + ": " + rowError.message);
+
+        // Remove the uploaded file if its database record failed.
+        await db.storage.from(BUCKET).remove([stored.path]);
+        continue;
+      }
+
+      uploaded++;
+    }
+
+    photoInput.value = "";
+    titleInput.value = "";
+    descriptionInput.value = "";
+
+    await loadPhotos();
+
+    if (errors.length) {
+      status(
+        uploaded + " photo(s) uploaded.\n" +
+        "Some uploads failed:\n" + errors.join("\n")
+      );
+    } else {
+      status(
+        "Success! " + uploaded +
+        " photo(s) added to the shared online gallery."
+      );
+    }
+  } catch (error) {
+    status("Upload failed: " + error.message);
+  } finally {
+    uploadButton.disabled = false;
+  }
+}
+
+uploadButton.addEventListener("click", uploadPhotos);
+refreshButton.addEventListener("click", loadPhotos);
+$("closeViewer").addEventListener("click", closePhoto);
+
+$("viewer").addEventListener("click", event => {
+  if (event.target.id === "viewer") closePhoto();
+});
+
+initialize();
+</script>
 
 </body>
 </html>
