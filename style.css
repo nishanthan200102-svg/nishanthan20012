@@ -1,10 +1,75 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    // லாகின் லாஜிக் இங்கே செயல்படும்
-    const role = document.getElementById('role').value;
-    const username = document.getElementById('username').value;
-    
-    console.log(`Role: ${role}, Username: ${username}`);
-    // உள்நுழைந்த பிறகு அந்தந்த ரோல் டேஷ்போர்டுக்கு செல்லும் வழிமுறை
-});
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0b1d3a, #1a2a4a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 350px;
+    border-top: 5px solid #800000; /* மரூன் பார்டர் */
+}
+
+h2 {
+    text-align: center;
+    color: #0b1d3a;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+select, input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+button {
+    padding: 12px;
+    background-color: #800000; /* மரூன் பட்டன் */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #a00000;
+}
+
+.options {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.options a {
+    color: #0b1d3a;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
