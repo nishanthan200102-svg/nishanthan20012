@@ -3,515 +3,488 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#16122e">
 <title>My School App</title>
 
 <style>
 :root {
   --green: #394f47;
-  --purple: #2a122e;
-  --dark: #16122e;
-  --mint: #a7e8c0;
+  --rose: #2a122e;
+  --navy: #16122e;
   --white: #ffffff;
 }
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; }
 
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, var(--dark),
-              var(--purple), var(--green));
-  color: var(--white);
+  background: var(--navy);
+  color: white;
   min-height: 100vh;
 }
-
-header {
-  text-align: center;
-  padding: 28px 15px;
-  background: rgba(0,0,0,.25);
+button, input, select {
+  font: inherit;
 }
-
-header h1 {
-  font-size: 34px;
-  margin-bottom: 8px;
-}
-
-header p {
-  color: #e1e1e1;
-  line-height: 1.7;
-}
-
-.container {
-  width: 92%;
-  max-width: 720px;
-  margin: 28px auto;
-}
-
-.card {
-  background: rgba(255,255,255,.09);
-  border: 1px solid rgba(255,255,255,.16);
-  border-radius: 20px;
-  padding: 24px;
-  margin-bottom: 22px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.18);
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.intro {
-  text-align: center;
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-
-.roles {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.role {
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.2);
-  color: white;
-  padding: 20px 6px;
-  border-radius: 15px;
+button {
   cursor: pointer;
+}
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 22px;
+}
+.screen.active { display: block; }
+
+#home {
+  position: relative;
+  overflow: hidden;
+  display: none;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  transition: .2s;
+  background:
+    linear-gradient(135deg, rgba(22,18,46,.84),
+    rgba(42,18,46,.78)),
+    var(--background-image, linear-gradient(135deg,#394f47,#2a122e,#16122e));
+  background-size: cover;
+  background-position: center;
 }
+#home.active { display: flex; }
 
-.role:hover {
-  background: rgba(167,232,192,.2);
-  border-color: var(--mint);
-  transform: translateY(-3px);
+.hero {
+  width: 100%;
+  max-width: 460px;
+  padding: 30px 20px;
 }
-
-.role .emoji {
-  font-size: 36px;
-  display: block;
-  margin-bottom: 12px;
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 28px;
+  display: grid;
+  place-items: center;
+  font-size: 50px;
+  background: rgba(255,255,255,.13);
+  border: 1px solid rgba(255,255,255,.25);
+  margin: 0 auto 22px;
 }
-
-.role h3 {
-  font-size: 15px;
-  margin-bottom: 6px;
+h1 { font-size: 35px; margin: 12px 0; }
+.subtitle { color: #e6e0ec; line-height: 1.6; }
+.primary {
+  border: 0;
+  border-radius: 14px;
+  padding: 15px 24px;
+  color: white;
+  font-weight: bold;
+  background: var(--green);
+  width: 100%;
+  margin-top: 18px;
 }
-
-.role p {
-  font-size: 12px;
-  color: #dedede;
+.secondary {
+  background: var(--rose);
+  color: white;
+  border: 1px solid #705675;
+  border-radius: 12px;
+  padding: 12px 16px;
 }
+.upload {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.35);
+  cursor: pointer;
+  font-size: 14px;
+}
+.upload input { display: none; }
 
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+.topbar h2 { margin: 0; font-size: 23px; }
+.back {
+  border: 1px solid #716b87;
+  background: transparent;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 13px;
+}
+.container { max-width: 600px; margin: auto; }
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 500px;
+  margin: 30px auto;
+}
+.card {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 20px;
+  padding: 22px;
+  text-align: left;
+}
+.card button { margin-top: 12px; }
+.card-icon { font-size: 35px; }
+.card h3 { margin: 12px 0 7px; }
+.card p { color: #ddd6e8; line-height: 1.5; }
+.panel {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 18px;
+  padding: 20px;
+  margin: 18px 0;
+}
 label {
   display: block;
   margin: 14px 0 7px;
+  color: #e7e0ef;
 }
-
 input, select {
   width: 100%;
   padding: 13px;
-  border: none;
-  border-radius: 9px;
-  font-size: 15px;
-  background: white;
-  color: #222;
+  border: 1px solid #655b7b;
+  border-radius: 11px;
+  color: white;
+  background: #241e3c;
 }
-
-button {
-  padding: 13px;
-  width: 100%;
-  margin-top: 16px;
-  border: none;
-  border-radius: 10px;
-  background: var(--mint);
-  color: var(--dark);
-  font-weight: bold;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-button:hover {
-  filter: brightness(.94);
-}
-
-.back {
-  background: #eee;
-  color: #222;
-}
-
-.hidden {
-  display: none !important;
-}
-
-.notice {
-  text-align: center;
-  margin-top: 14px;
-  line-height: 1.7;
-  overflow-wrap: anywhere;
-}
-
-.student {
-  padding: 15px;
-  background: rgba(255,255,255,.08);
-  border-radius: 12px;
-  margin-top: 12px;
-  line-height: 1.8;
-  overflow-wrap: anywhere;
-}
-
-.student button {
-  background: #f2aaaa;
-}
-
-footer {
-  padding: 25px 12px;
-  text-align: center;
-  color: #ddd;
+input::placeholder { color: #bdb4ce; }
+.note {
+  color: #cfc5dc;
   font-size: 13px;
+  line-height: 1.5;
 }
-
-@media(max-width: 480px) {
-  .roles {
-    grid-template-columns: 1fr;
-  }
-
-  header h1 {
-    font-size: 28px;
-  }
-
-  .card {
-    padding: 18px;
-  }
+.result-item {
+  border-bottom: 1px solid #514662;
+  padding: 12px 0;
+  overflow-wrap: anywhere;
+}
+.danger {
+  background: #692b3c;
+  border: 0;
+  color: white;
+  border-radius: 10px;
+  padding: 9px 12px;
+}
+footer {
+  text-align: center;
+  color: #bdb4ce;
+  font-size: 12px;
+  padding: 25px 0 10px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>🏫 My School</h1>
-  <p>School Management System</p>
-  <p>பாடசாலை நிர்வாகச் செயலி</p>
-</header>
-
-<main class="container">
-
-  <!-- HOME PAGE -->
-  <section class="card" id="home">
-    <h2>Welcome to My School</h2>
-
-    <p class="intro">
-      உங்கள் பிரிவைத் தேர்ந்தெடுக்கவும்.<br>
-      Select your section to continue.
+<!-- HOME PAGE -->
+<section id="home" class="screen active">
+  <div class="hero">
+    <div class="logo">🏫</div>
+    <h1>My School</h1>
+    <p class="subtitle">
+      Your School, Your Learning, Your Future.<br>
+      Welcome to My School App
     </p>
 
-    <div class="roles">
+    <button class="primary" onclick="unlockApp()">
+      🔓 UNLOCK APP
+    </button>
 
-      <button class="role" onclick="openSection('school')">
-        <span class="emoji">🏫</span>
-        <h3>School</h3>
-        <p>Control System</p>
-      </button>
+    <label class="upload">
+      🖼️ Change Background Picture
+      <input type="file" accept="image/*"
+             onchange="changeBackground(event)">
+    </label>
 
-      <button class="role" onclick="openSection('teacher')">
-        <span class="emoji">👨‍🏫</span>
-        <h3>Teacher</h3>
-        <p>ஆசிரியர்</p>
-      </button>
+    <p class="note">Choose a picture from your phone gallery.</p>
+  </div>
+</section>
 
-      <button class="role" onclick="openSection('parent')">
-        <span class="emoji">👨‍👩‍👦</span>
-        <h3>Parents</h3>
-        <p>பெற்றோர்</p>
-      </button>
-
+<!-- THREE MAIN OPTIONS -->
+<section id="menu" class="screen">
+  <div class="container">
+    <div class="topbar">
+      <h2>Welcome to My School</h2>
+      <button class="back" onclick="showScreen('home')">⌂ Home</button>
     </div>
-  </section>
 
-  <!-- SCHOOL CONTROL -->
-  <section class="card hidden" id="school">
-    <h2>🏫 School Control System</h2>
+    <p class="subtitle">Choose your section to continue.</p>
 
-    <p class="intro">
-      Student Details Management<br>
-      மாணவர் விவரங்கள்
-    </p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🏫</div>
+        <h3>School</h3>
+        <p>Manage student details and school records.</p>
+        <button class="primary" onclick="showScreen('school')">
+          Open School
+        </button>
+      </div>
 
-    <form id="studentForm">
+      <div class="card">
+        <div class="card-icon">👨‍🏫</div>
+        <h3>Teachers</h3>
+        <p>Teacher section for student records and results.</p>
+        <button class="primary" onclick="showScreen('teacher')">
+          Open Teachers
+        </button>
+      </div>
 
-      <label for="name">Student Full Name</label>
-      <input id="name" required placeholder="மாணவர் முழுப் பெயர்">
+      <div class="card">
+        <div class="card-icon">👨‍👩‍👧</div>
+        <h3>Parents</h3>
+        <p>Parent section for children's school information.</p>
+        <button class="primary" onclick="showScreen('parents')">
+          Open Parents
+        </button>
+      </div>
+    </div>
+    <footer>My School App • Learn Together, Grow Together</footer>
+  </div>
+</section>
 
-      <label for="index">Student Index Number</label>
-      <input id="index" required placeholder="Index Number">
+<!-- SCHOOL SECTION -->
+<section id="school" class="screen">
+  <div class="container">
+    <div class="topbar">
+      <h2>🏫 School Control</h2>
+      <button class="back" onclick="showScreen('menu')">← Back</button>
+    </div>
 
-      <label for="age">Student Age</label>
-      <input id="age" type="number" min="3" max="100"
-             required placeholder="வயது">
+    <div class="panel">
+      <h3>Register a Student</h3>
+      <form id="studentForm">
+        <label>Student Full Name</label>
+        <input id="studentName" required placeholder="Enter full name">
 
-      <label for="dob">Date of Birth</label>
-      <input id="dob" type="date" required>
+        <label>Student Index Number</label>
+        <input id="studentIndex" required placeholder="Enter index number">
 
-      <label for="className">Class / Grade</label>
-      <select id="className" required>
-        <option value="">Select Class</option>
-        <option>Grade 1</option>
-        <option>Grade 2</option>
-        <option>Grade 3</option>
-        <option>Grade 4</option>
-        <option>Grade 5</option>
-        <option>Grade 6</option>
-        <option>Grade 7</option>
-        <option>Grade 8</option>
-        <option>Grade 9</option>
-        <option>Grade 10</option>
-        <option>Grade 11</option>
-        <option>Grade 12</option>
-        <option>Grade 13</option>
-      </select>
+        <label>Age</label>
+        <input id="studentAge" type="number" min="1" max="120"
+               required placeholder="Enter age">
 
-      <button type="submit">Save Student Details</button>
-    </form>
+        <label>Date of Birth</label>
+        <input id="studentDob" type="date">
 
-    <p class="notice" id="schoolNotice"></p>
+        <label>Class / Grade</label>
+        <input id="studentClass" placeholder="Example: Grade 8">
 
-    <h2 style="margin-top:25px">Student Records</h2>
-    <div id="studentList"></div>
+        <button class="primary" type="submit">Save Student</button>
+      </form>
+    </div>
 
-    <button class="back" onclick="goHome()">⬅ Back to Home</button>
-  </section>
+    <div class="panel">
+      <h3>Registered Students</h3>
+      <div id="studentList"></div>
+      <p class="note">
+        Prototype only: these records are saved in this browser on this device.
+        They are not yet shared with teachers or parents.
+      </p>
+    </div>
+  </div>
+</section>
 
-  <!-- TEACHER -->
-  <section class="card hidden" id="teacher">
-    <h2>👨‍🏫 Teacher Login</h2>
+<!-- TEACHER SECTION -->
+<section id="teacher" class="screen">
+  <div class="container">
+    <div class="topbar">
+      <h2>👨‍🏫 Teacher Section</h2>
+      <button class="back" onclick="showScreen('menu')">← Back</button>
+    </div>
 
-    <p class="intro">
-      ஆசிரியர் உள்நுழைவு
-    </p>
+    <div class="panel">
+      <h3>Teacher Access</h3>
+      <p class="subtitle">
+        The teacher login and secure account registration will be connected
+        after we set up the app's database.
+      </p>
+      <label>Teacher Name</label>
+      <input placeholder="Enter teacher name" disabled>
+      <label>Password</label>
+      <input type="password" placeholder="Password" disabled>
+      <button class="primary" disabled>Teacher Login — Coming Next</button>
+    </div>
 
-    <form id="teacherForm">
-      <label for="teacherName">Teacher Name</label>
-      <input id="teacherName" required placeholder="ஆசிரியர் பெயர்">
+    <div class="panel">
+      <h3>Planned Teacher Features</h3>
+      <p>✓ View assigned students</p>
+      <p>✓ Add term and yearly examination results</p>
+      <p>✓ Post school news and pictures</p>
+      <p>✓ Send messages to parents</p>
+    </div>
+  </div>
+</section>
 
-      <label for="teacherPassword">Password</label>
-      <input id="teacherPassword" type="password" required
-             placeholder="Password">
+<!-- PARENTS SECTION -->
+<section id="parents" class="screen">
+  <div class="container">
+    <div class="topbar">
+      <h2>👨‍👩‍👧 Parents Section</h2>
+      <button class="back" onclick="showScreen('menu')">← Back</button>
+    </div>
 
-      <button type="submit">Login</button>
-    </form>
+    <div class="panel">
+      <h3>Parent Access</h3>
+      <p class="subtitle">
+        Secure parent verification will be added when the shared database
+        is ready. A child's name and index number alone are not secure login.
+      </p>
+      <label>Parent Name</label>
+      <input placeholder="Enter parent name" disabled>
+      <label>Student Index Number</label>
+      <input placeholder="Enter child's index number" disabled>
+      <button class="primary" disabled>Parent Login — Coming Next</button>
+    </div>
 
-    <p class="notice" id="teacherNotice">
-      Teacher account மற்றும் பாதுகாப்பான login
-      அடுத்த கட்டத்தில் இணைக்கப்படும்.
-    </p>
-
-    <button class="back" onclick="goHome()">⬅ Back to Home</button>
-  </section>
-
-  <!-- PARENT -->
-  <section class="card hidden" id="parent">
-    <h2>👨‍👩‍👦 Parent Login</h2>
-
-    <p class="intro">
-      பெற்றோர் உள்நுழைவு
-    </p>
-
-    <form id="parentForm">
-      <label for="parentStudentName">Student Full Name</label>
-      <input id="parentStudentName" required
-             placeholder="மாணவர் முழுப் பெயர்">
-
-      <label for="parentIndex">Student Index Number</label>
-      <input id="parentIndex" required
-             placeholder="Index Number">
-
-      <button type="submit">View Student Profile</button>
-    </form>
-
-    <div id="parentProfile"></div>
-
-    <p class="notice" id="parentNotice">
-      பாதுகாப்பான பெற்றோர் சரிபார்ப்பு அடுத்த கட்டத்தில் இணைக்கப்படும்.
-    </p>
-
-    <button class="back" onclick="goHome()">⬅ Back to Home</button>
-  </section>
-
-</main>
-
-<footer>
-  © 2026 My School App
-  <p>Education • Results • Communication</p>
-</footer>
+    <div class="panel">
+      <h3>Planned Parent Features</h3>
+      <p>✓ View child's school profile</p>
+      <p>✓ View term and yearly results</p>
+      <p>✓ Read school announcements and pictures</p>
+      <p>✓ Message teachers</p>
+    </div>
+  </div>
+</section>
 
 <script>
-const sections = ["home", "school", "teacher", "parent"];
+const screens = document.querySelectorAll(".screen");
 
-function openSection(id) {
-  sections.forEach(section => {
-    document.getElementById(section).classList.add("hidden");
-  });
-
-  document.getElementById(id).classList.remove("hidden");
+function showScreen(id) {
+  screens.forEach(screen => screen.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
   window.scrollTo(0, 0);
+
+  if (id === "school") renderStudents();
 }
 
-function goHome() {
-  openSection("home");
+function unlockApp() {
+  showScreen("menu");
 }
 
+// Save a selected background image in this browser.
+function changeBackground(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    alert("Please choose an image file.");
+    return;
+  }
+
+  if (file.size > 4 * 1024 * 1024) {
+    alert("Please choose an image smaller than 4 MB.");
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+    const imageData = e.target.result;
+    document.getElementById("home").style.backgroundImage =
+      `linear-gradient(135deg, rgba(22,18,46,.72), rgba(42,18,46,.65)), url("${imageData}")`;
+
+    try {
+      localStorage.setItem("mySchoolBackground", imageData);
+      alert("Background picture saved in this browser!");
+    } catch (error) {
+      alert("Picture displayed, but could not be saved. Try a smaller image.");
+    }
+  };
+
+  reader.readAsDataURL(file);
+}
+
+// Restore previously selected background.
+try {
+  const savedBackground = localStorage.getItem("mySchoolBackground");
+  if (savedBackground) {
+    document.getElementById("home").style.backgroundImage =
+      `linear-gradient(135deg, rgba(22,18,46,.72), rgba(42,18,46,.65)), url("${savedBackground}")`;
+  }
+} catch (error) {}
+
+// Student prototype: browser storage only, not a shared database.
 function getStudents() {
   try {
-    return JSON.parse(
-      localStorage.getItem("mySchoolStudents") || "[]"
-    );
+    return JSON.parse(localStorage.getItem("mySchoolStudents") || "[]");
   } catch (error) {
     return [];
   }
 }
 
-function saveStudents(students) {
-  localStorage.setItem(
-    "mySchoolStudents",
-    JSON.stringify(students)
-  );
-}
+document.getElementById("studentForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-document.getElementById("studentForm").addEventListener(
-  "submit", function(event) {
-    event.preventDefault();
+  const student = {
+    name: document.getElementById("studentName").value.trim(),
+    index: document.getElementById("studentIndex").value.trim(),
+    age: document.getElementById("studentAge").value,
+    dob: document.getElementById("studentDob").value,
+    studentClass: document.getElementById("studentClass").value.trim()
+  };
 
-    const student = {
-      name: document.getElementById("name").value.trim(),
-      index: document.getElementById("index").value.trim(),
-      age: document.getElementById("age").value,
-      dob: document.getElementById("dob").value,
-      className: document.getElementById("className").value,
-      results: []
-    };
+  const students = getStudents();
 
-    const students = getStudents();
-
-    if (students.some(s =>
-      s.index.toLowerCase() === student.index.toLowerCase()
-    )) {
-      document.getElementById("schoolNotice").textContent =
-        "இந்த Index Number ஏற்கனவே உள்ளது.";
-      return;
-    }
-
-    students.push(student);
-    saveStudents(students);
-
-    document.getElementById("studentForm").reset();
-    document.getElementById("schoolNotice").textContent =
-      "மாணவர் விவரங்கள் இந்தச் சாதனத்தில் சேமிக்கப்பட்டன.";
-
-    displayStudents();
+  if (students.some(s => s.index.toLowerCase() === student.index.toLowerCase())) {
+    alert("This student index number is already registered.");
+    return;
   }
-);
 
-function displayStudents() {
+  students.push(student);
+
+  try {
+    localStorage.setItem("mySchoolStudents", JSON.stringify(students));
+    this.reset();
+    renderStudents();
+    alert("Student saved in this browser.");
+  } catch (error) {
+    alert("Could not save student details in this browser.");
+  }
+});
+
+function renderStudents() {
   const list = document.getElementById("studentList");
+  const students = getStudents();
+
+  if (!students.length) {
+    list.innerHTML = "<p>No students registered yet.</p>";
+    return;
+  }
+
   list.replaceChildren();
 
-  getStudents().forEach((student, index) => {
-    const card = document.createElement("div");
-    card.className = "student";
-
-    const title = document.createElement("h3");
-    title.textContent = student.name;
+  students.forEach((student, index) => {
+    const item = document.createElement("div");
+    item.className = "result-item";
 
     const details = document.createElement("p");
     details.textContent =
-      "Index: " + student.index +
+      student.name + " | Index: " + student.index +
       " | Age: " + student.age +
-      " | DOB: " + student.dob +
-      " | Class: " + student.className;
+      (student.studentClass ? " | Class: " + student.studentClass : "");
 
     const remove = document.createElement("button");
-    remove.textContent = "Delete Student";
+    remove.className = "danger";
+    remove.textContent = "Delete";
+    remove.onclick = function() {
+      if (!confirm("Delete this student record?")) return;
+      const updated = getStudents();
+      updated.splice(index, 1);
+      localStorage.setItem("mySchoolStudents", JSON.stringify(updated));
+      renderStudents();
+    };
 
-    remove.addEventListener("click", () => {
-      if (confirm("இந்த மாணவர் விவரங்களை நீக்கவா?")) {
-        const updated = getStudents();
-        updated.splice(index, 1);
-        saveStudents(updated);
-        displayStudents();
-      }
-    });
-
-    card.append(title, details, remove);
-    list.appendChild(card);
+    item.append(details, remove);
+    list.appendChild(item);
   });
-
-  if (getStudents().length === 0) {
-    list.textContent = "மாணவர் விவரங்கள் இன்னும் சேர்க்கப்படவில்லை.";
-  }
 }
 
-document.getElementById("parentForm").addEventListener(
-  "submit", function(event) {
-    event.preventDefault();
-
-    const name = document.getElementById("parentStudentName")
-      .value.trim().toLowerCase();
-
-    const index = document.getElementById("parentIndex")
-      .value.trim().toLowerCase();
-
-    const student = getStudents().find(s =>
-      s.name.toLowerCase() === name &&
-      s.index.toLowerCase() === index
-    );
-
-    const profile = document.getElementById("parentProfile");
-    profile.replaceChildren();
-
-    if (!student) {
-      document.getElementById("parentNotice").textContent =
-        "மாணவர் விவரங்கள் கிடைக்கவில்லை. School-ல் பதிவு செய்யப்பட்ட பெயர் மற்றும் Index Number சரிபார்க்கவும்.";
-      return;
-    }
-
-    const card = document.createElement("div");
-    card.className = "student";
-
-    const title = document.createElement("h3");
-    title.textContent = student.name;
-
-    const details = document.createElement("p");
-    details.textContent =
-      "Index: " + student.index +
-      " | Age: " + student.age +
-      " | DOB: " + student.dob +
-      " | Class: " + student.className;
-
-    card.append(title, details);
-    profile.appendChild(card);
-
-    document.getElementById("parentNotice").textContent =
-      "இந்த மாதிரி பக்கத்தில் மாணவர் விவரங்கள் காட்டப்படுகின்றன. உண்மையான பெற்றோர் அடையாளச் சரிபார்ப்பு இன்னும் தேவை.";
-  }
-);
-
-document.getElementById("teacherForm").addEventListener(
-  "submit", function(event) {
-    event.preventDefault();
-
-    document.getElementById("teacherNotice").textContent =
-      "Teacher login இன்னும் பாதுகாப்பான database உடன் இணைக்கப்படவில்லை. உண்மையான கணக்குகளை அடுத்த கட்டத்தில் அமைப்போம்.";
-  }
-);
-
-displayStudents();
+renderStudents();
 </script>
 
 </body>
