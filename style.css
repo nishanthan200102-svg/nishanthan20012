@@ -1,1 +1,10 @@
-
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // லாகின் லாஜிக் இங்கே செயல்படும்
+    const role = document.getElementById('role').value;
+    const username = document.getElementById('username').value;
+    
+    console.log(`Role: ${role}, Username: ${username}`);
+    // உள்நுழைந்த பிறகு அந்தந்த ரோல் டேஷ்போர்டுக்கு செல்லும் வழிமுறை
+});
