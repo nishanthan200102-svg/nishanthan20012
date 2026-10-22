@@ -1,0 +1,135 @@
+
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>பள்ளி மேலாண்மை அமைப்பு - லாகின்</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #eef2f3; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); width: 100%; max-width: 450px; box-sizing: border-box; }
+        h2 { text-align: center; color: #007BFF; margin-bottom: 20px; }
+        label { display: block; margin-top: 12px; font-weight: bold; color: #444; }
+        select, input, textarea { width: 100%; padding: 12px; margin-top: 6px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+        button { width: 100%; padding: 12px; background: #007BFF; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+        button:hover { background: #0056b3; }
+        .dashboard { display: none; }
+        .section { background: #f8f9fa; padding: 15px; margin-bottom: 15px; border-radius: 8px; border-left: 4px solid #007BFF; }
+        .profile-box { background: #e9ecef; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px; text-align: center; }
+        .logout-btn { background: #dc3545; margin-top: 10px; }
+        .logout-btn:hover { background: #c82333; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. லாகின் பக்கம் -->
+    <div class="card" id="loginCard">
+        <h2>பள்ளி லாகின்</h2>
+        <form id="loginForm">
+            <label>பிரிவைத் தேர்ந்தெடுக்கவும்:</label>
+            <select id="role">
+                <option value="parent">பெற்றோர் (Parent)</option>
+                <option value="teacher">ஆசிரியர் (Teacher)</option>
+                <option value="school">பள்ளி நிர்வாகம் (School Admin)</option>
+            </select>
+
+            <label>பயனர்பெயர் (Username / Index No):</label>
+            <input type="text" id="username" placeholder="admin என இடவும்" required>
+
+            <label>கடவுச்சொல் (Password):</label>
+            <input type="password" id="password" placeholder="admin என இடவும்" required>
+
+            <button type="submit">உள்நுழைய</button>
+        </form>
+    </div>
+
+    <!-- 2. பெற்றோர் டேஷ்போர்டு பகுதி (Login ஆன பிறகு இது திறக்கும்) -->
+    <div class="card dashboard" id="parentDashboard" style="max-width: 650px;">
+        <h2>பெற்றோர் போர்டல் (Parent Portal)</h2>
+        
+        <!-- மாணவர் மற்றும் பள்ளி விவரங்கள் -->
+        <div class="section">
+            <h3>மாணவர் மற்றும் பள்ளி விவரங்கள்</h3>
+            <p><strong>மாணவர் பெயர்:</strong> ராகுல்</p>
+            <p><strong>இன்டெக்ஸ் நம்பர்:</strong> IND101</p>
+            <p><strong>வகுப்பு:</strong> 10-ஆம் வகுப்பு</p>
+            <p><strong>பள்ளியின் மொத்த மாணவர்கள்:</strong> 450</p>
+            <p><strong>வகுப்பு மாணவர்கள் எண்ணிக்கை:</strong> 35</p>
+        </div>
+
+        <!-- ஆசிரியர் ப்ரொபைல் சுருக்கம் -->
+        <div class="section">
+            <h3>ஆசிரியர் விவரங்கள்</h3>
+            <div class="profile-box" onclick="toggleTeacherStats()">
+                👨‍🏫 திரு. முருகன் (கணித ஆசிரியர்) - விவரங்களைக் காண கிளிக் செய்யவும்
+            </div>
+            <div id="teacherStats" style="display: none; margin-top: 10px; padding: 10px; background: #fff; border: 1px solid #ddd; border-radius: 6px;">
+                <p><strong>இணைக்கப்பட்ட மொத்த மாணவர்கள்:</strong> 120</p>
+                <p><strong>இணைக்கப்பட்ட மொத்த பெற்றோர்கள்:</strong> 115</p>
+            </div>
+        </div>
+
+        <!-- ஆசிரியரின் அறிவிப்புகள் (View Only) -->
+        <div class="section">
+            <h3>ஆசிரியரின் அறிவிப்புகள்</h3>
+            <div style="background: white; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                <p style="font-size: 12px; color: gray; margin: 0 0 5px 0;">தேதி: 24-10-2026 | ஆசிரியர்: திரு. முருகன்</p>
+                <p style="margin: 0;">அன்பான பெற்றோர்களே, வரும் திங்கட்கிழமை அன்று கணித பாடத்திற்கான மாதிரித் தேர்வு நடைபெறும்.</p>
+            </div>
+        </div>
+
+        <!-- ஆசிரியர் தொடர்பு (Chat, Photo, Voice) -->
+        <div class="section">
+            <h3>ஆசிரியரிடம் பேச (Teacher Contact)</h3>
+            <textarea placeholder="செய்தியை இங்கே தட்டச்சு செய்யவும்..." rows="2"></textarea>
+            <label style="font-size: 13px;">புகைப்படம் அனுப்பு:</label>
+            <input type="file" accept="image/*">
+            <button type="button" onclick="alert('குரல் பதிவு செய்யப்படுகிறது...')" style="background: #28a745; margin-bottom: 10px;">🎤 வாய்ஸ் மெசேஜ் பதிவு செய்</button>
+            <button onclick="alert('செய்தி ஆசிரியருக்கு வெற்றிகரமாக அனுப்பப்பட்டது!')">செய்தியை அனுப்பு</button>
+        </div>
+
+        <!-- மதிப்பெண் மற்றும் ரிசல்ட் சீட்டுகள் -->
+        <div class="section">
+            <h3>மதிப்பெண் மற்றும் ரிசல்ட் சீட்டுகள்</h3>
+            <p><strong>2026 ஆண்டிற்கான இறுதி ரிசல்ட் சீட்:</strong> இணைக்கப்பட்டுள்ளது.</p>
+            <button onclick="alert('ரிசல்ட் சீட் பதிவிறக்கம் செய்யப்படுகிறது...')">ரிசல்ட் சீட்டைப் பார்க்க / டவுன்லோட் செய்ய</button>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">வெளியேறு (Logout)</button>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var role = document.getElementById('role').value;
+            var user = document.getElementById('username').value.trim();
+            var pass = document.getElementById('password').value.trim();
+
+            // டெஸ்டிங்கிற்காக admin / admin என வைக்கப்பட்டுள்ளது
+            if (user === "admin" && pass === "admin") {
+                document.getElementById('loginCard').style.display = 'none';
+                if (role === 'parent') {
+                    document.getElementById('parentDashboard').style.display = 'block';
+                } else {
+                    alert(role + " டேஷ்போர்டு விரைவில் திறக்கப்படும்!");
+                }
+            } else {
+                alert("தவறான பயனர் பெயர் அல்லது கடவுச்சொல்! (admin / admin என முயற்சிக்கவும்)");
+            }
+        });
+
+        function toggleTeacherStats() {
+            var stats = document.getElementById('teacherStats');
+            stats.style.display = (stats.style.display === "none") ? "block" : "none";
+        }
+
+        function logout() {
+            document.getElementById('parentDashboard').style.display = 'none';
+            document.getElementById('loginCard').style.display = 'block';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+    </script>
+
+</body>
+</html>
