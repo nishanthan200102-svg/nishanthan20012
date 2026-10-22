@@ -1,0 +1,35 @@
+<!-- இன்டெக்ஸ் நம்பரை தேடும் பகுதி -->
+<div class="school-section">
+    <h3>மாணவர் விவரங்களைத் தேட</h3>
+    <input type="text" id="indexSearch" placeholder="இன்டெக்ஸ் நம்பரை உள்ளிடவும்">
+    <button onclick="searchStudent()">தேடு</button>
+    
+    <!-- மாணவர் விவரங்கள் மற்றும் ரிசல்ட் சீட் காட்டும் பகுதி -->
+    <div id="studentDetailsResult" style="margin-top: 20px;"></div>
+</div>
+
+<script>
+function searchStudent() {
+    var indexNo = document.getElementById('indexSearch').value;
+    var resultDiv = document.getElementById('studentDetailsResult');
+    
+    if (indexNo.trim() === "") {
+        resultDiv.innerHTML = "<p style='color: red;'>தயவுசெய்து இன்டெக்ஸ் நம்பரை உள்ளிடவும்.</p>";
+        return;
+    }
+    
+    // இங்கு உங்களுடைய டேட்டாபேஸில் இருந்து தரவுகளை எடுக்க வேண்டும்
+    // தற்காலிகமாக வெளிவரும் மாதிரி வடிவம்:
+    resultDiv.innerHTML = `
+        <div style="border: 1px solid #ccc; padding: 15px; border-radius: 5px;">
+            <h4>மாணவர் விவரங்கள்</h4>
+            <p><strong>இன்டெக்ஸ் நம்பர்:</strong> ${indexNo}</p>
+            <p><strong>முழுப் பெயர்:</strong> [மாணவரின் பெயர் இங்கு வரும்]</p>
+            <p><strong>முகவரி:</strong> [ஊர் முகவரி இங்கு வரும்]</p>
+            <p><strong>தற்போதைய தரம்:</strong> [தரம் இங்கு வரும்]</p>
+            <h5>ரிசல்ட் சீட் விவரங்கள்:</h5>
+            <p>[பத்து பாடங்களுக்கான மதிப்பெண்கள் மற்றும் வருடாந்திர ரிசல்ட் சீட் இங்கு காட்டப்படும்]</p>
+        </div>
+    `;
+}
+</script>
