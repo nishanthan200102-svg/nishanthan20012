@@ -1,0 +1,25 @@
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // பேஜ் ரெப்ரெஷ் ஆவதை தடுக்கும்
+
+    var role = document.getElementById('role').value;
+    var username = document.getElementById('username').value.trim();
+    var password = document.getElementById('password').value.trim();
+
+    // டெஸ்டுக்காக ஒரு காமன் பாஸ்வேர்ட் (உதாரணத்திற்கு: 1234 அல்லது admin)
+    if (password === "1234" || password === "admin") {
+        
+        if (role === 'school') {
+            alert("ஸ்கூல் அட்மின் உள்ளே நுழைகிறது!");
+            // window.location.href = "school_dashboard.html";
+        } else if (role === 'teacher') {
+            alert("ஆசிரியர் டேஷ்போர்டுக்குச் செல்கிறது!");
+            // window.location.href = "teacher_dashboard.html";
+        } else if (role === 'parent') {
+            alert("பெற்றோர் பகுதிக்குச் செல்கிறது!");
+            // window.location.href = "parent_dashboard.html";
+        }
+
+    } else {
+        alert("தவறான கடவுச்சொல்! (டெஸ்டிங்கிற்கு 1234 அல்லது admin என முயற்சிக்கவும்)");
+    }
+});
