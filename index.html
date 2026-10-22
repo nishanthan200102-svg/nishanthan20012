@@ -3,26 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>பள்ளி மேலாண்மை அமைப்பு - லாகின்</title>
+    <title>பள்ளி மேலாண்மை அமைப்பு - TikTok Style</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #eef2f3; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); width: 100%; max-width: 450px; box-sizing: border-box; }
-        h2 { text-align: center; color: #007BFF; margin-bottom: 20px; }
-        label { display: block; margin-top: 12px; font-weight: bold; color: #444; }
-        select, input, textarea { width: 100%; padding: 12px; margin-top: 6px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
-        button { width: 100%; padding: 12px; background: #007BFF; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background 0.3s; }
-        button:hover { background: #0056b3; }
+        :root { --primary: #fe2c55; --bg: #f8f9fa; --card-bg: #ffffff; --text: #161823; --gray: #8a8b91; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 15px; display: flex; justify-content: center; align-items: center; min-height: 100vh; box-sizing: border-box; }
+        .container { width: 100%; max-width: 450px; background: var(--card-bg); border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; padding: 25px; box-sizing: border-box; }
+        
+        /* Login Styles */
+        h2 { text-align: center; color: var(--text); margin-bottom: 25px; font-weight: 700; }
+        label { display: block; margin-top: 12px; font-weight: 600; font-size: 13px; color: var(--gray); }
+        select, input, textarea { width: 100%; padding: 12px; margin-top: 6px; margin-bottom: 15px; border: 1px solid #e1e1e3; border-radius: 8px; box-sizing: border-box; font-size: 14px; background: #f1f1f2; }
+        button { width: 100%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: opacity 0.2s; }
+        button:hover { opacity: 0.9; }
+
+        /* TikTok Style Profile Header */
         .dashboard { display: none; }
-        .section { background: #f8f9fa; padding: 15px; margin-bottom: 15px; border-radius: 8px; border-left: 4px solid #007BFF; }
-        .profile-box { background: #e9ecef; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px; text-align: center; }
-        .logout-btn { background: #dc3545; margin-top: 10px; }
-        .logout-btn:hover { background: #c82333; }
+        .profile-header { text-align: center; padding: 10px 0 20px 0; border-bottom: 1px solid #eee; }
+        .avatar { width: 80px; height: 80px; background: #ddd; border-radius: 50%; margin: 0 auto 10px auto; display: flex; align-items: center; justify-content: center; font-size: 32px; border: 3px solid var(--primary); }
+        .profile-name { font-size: 18px; font-weight: bold; margin: 5px 0; }
+        .profile-id { font-size: 13px; color: var(--gray); }
+        
+        .stats-row { display: flex; justify-content: space-around; margin: 15px 0; text-align: center; }
+        .stat-item { flex: 1; }
+        .stat-num { font-size: 16px; font-weight: bold; }
+        .stat-label { font-size: 11px; color: var(--gray); }
+
+        /* Sections */
+        .section { background: #f8f9fa; padding: 15px; margin-top: 15px; border-radius: 10px; border-left: 4px solid var(--primary); }
+        .section h3 { margin-top: 0; font-size: 15px; color: var(--text); }
+        .logout-btn { background: #161823; margin-top: 20px; }
     </style>
 </head>
 <body>
 
+<div class="container">
+
     <!-- 1. லாகின் பக்கம் -->
-    <div class="card" id="loginCard">
+    <div id="loginCard">
         <h2>பள்ளி லாகின்</h2>
         <form id="loginForm">
             <label>பிரிவைத் தேர்ந்தெடுக்கவும்:</label>
@@ -42,94 +59,113 @@
         </form>
     </div>
 
-    <!-- 2. பெற்றோர் டேஷ்போர்டு பகுதி (Login ஆன பிறகு இது திறக்கும்) -->
-    <div class="card dashboard" id="parentDashboard" style="max-width: 650px;">
-        <h2>பெற்றோர் போர்டல் (Parent Portal)</h2>
-        
-        <!-- மாணவர் மற்றும் பள்ளி விவரங்கள் -->
-        <div class="section">
-            <h3>மாணவர் மற்றும் பள்ளி விவரங்கள்</h3>
-            <p><strong>மாணவர் பெயர்:</strong> ராகுல்</p>
-            <p><strong>இன்டெக்ஸ் நம்பர்:</strong> IND101</p>
-            <p><strong>வகுப்பு:</strong> 10-ஆம் வகுப்பு</p>
-            <p><strong>பள்ளியின் மொத்த மாணவர்கள்:</strong> 450</p>
-            <p><strong>வகுப்பு மாணவர்கள் எண்ணிக்கை:</strong> 35</p>
-        </div>
-
-        <!-- ஆசிரியர் ப்ரொபைல் சுருக்கம் -->
-        <div class="section">
-            <h3>ஆசிரியர் விவரங்கள்</h3>
-            <div class="profile-box" onclick="toggleTeacherStats()">
-                👨‍🏫 திரு. முருகன் (கணித ஆசிரியர்) - விவரங்களைக் காண கிளிக் செய்யவும்
-            </div>
-            <div id="teacherStats" style="display: none; margin-top: 10px; padding: 10px; background: #fff; border: 1px solid #ddd; border-radius: 6px;">
-                <p><strong>இணைக்கப்பட்ட மொத்த மாணவர்கள்:</strong> 120</p>
-                <p><strong>இணைக்கப்பட்ட மொத்த பெற்றோர்கள்:</strong> 115</p>
+    <!-- 2. பெற்றோர் டேஷ்போர்டு (TikTok Style Profile) -->
+    <div class="dashboard" id="parentDashboard">
+        <div class="profile-header">
+            <div class="avatar">👨‍🎓</div>
+            <div class="profile-name">ராகுல் (Rahul)</div>
+            <div class="profile-id">இன்டெக்ஸ்: IND101 | 10-ஆம் வகுப்பு</div>
+            
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-num">450</div>
+                    <div class="stat-label">பள்ளி மாணவர்கள்</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">35</div>
+                    <div class="stat-label">வகுப்பு மாணவர்கள்</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">4</div>
+                    <div class="stat-label">ஆசிரியர்கள்</div>
+                </div>
             </div>
         </div>
 
-        <!-- ஆசிரியரின் அறிவிப்புகள் (View Only) -->
         <div class="section">
-            <h3>ஆசிரியரின் அறிவிப்புகள்</h3>
-            <div style="background: white; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
-                <p style="font-size: 12px; color: gray; margin: 0 0 5px 0;">தேதி: 24-10-2026 | ஆசிரியர்: திரு. முருகன்</p>
-                <p style="margin: 0;">அன்பான பெற்றோர்களே, வரும் திங்கட்கிழமை அன்று கணித பாடத்திற்கான மாதிரித் தேர்வு நடைபெறும்.</p>
-            </div>
+            <h3>📌 ஆசிரியரின் அறிவிப்புகள்</h3>
+            <p style="font-size: 13px; margin: 5px 0;">அன்பான பெற்றோர்களே, வரும் திங்கட்கிழமை கணித மாதிரித் தேர்வு நடைபெறும்.</p>
         </div>
 
-        <!-- ஆசிரியர் தொடர்பு (Chat, Photo, Voice) -->
         <div class="section">
-            <h3>ஆசிரியரிடம் பேச (Teacher Contact)</h3>
+            <h3>💬 ஆசிரியரிடம் தொடர்பு கொள்ள</h3>
             <textarea placeholder="செய்தியை இங்கே தட்டச்சு செய்யவும்..." rows="2"></textarea>
-            <label style="font-size: 13px;">புகைப்படம் அனுப்பு:</label>
-            <input type="file" accept="image/*">
-            <button type="button" onclick="alert('குரல் பதிவு செய்யப்படுகிறது...')" style="background: #28a745; margin-bottom: 10px;">🎤 வாய்ஸ் மெசேஜ் பதிவு செய்</button>
-            <button onclick="alert('செய்தி ஆசிரியருக்கு வெற்றிகரமாக அனுப்பப்பட்டது!')">செய்தியை அனுப்பு</button>
+            <input type="file" accept="image/*" style="padding: 6px; font-size: 12px;">
+            <button type="button" onclick="alert('குரல் பதிவு செய்யப்படுகிறது...')" style="background: #25d366; margin-top: 5px; font-size: 13px; padding: 8px;">🎤 வாய்ஸ் மெசேஜ் அனுப்பு</button>
+            <button onclick="alert('செய்தி வெற்றிகரமாக அனுப்பப்பட்டது!')" style="margin-top: 8px; font-size: 14px;">செய்தியை அனுப்பு</button>
         </div>
 
-        <!-- மதிப்பெண் மற்றும் ரிசல்ட் சீட்டுகள் -->
         <div class="section">
-            <h3>மதிப்பெண் மற்றும் ரிசல்ட் சீட்டுகள்</h3>
-            <p><strong>2026 ஆண்டிற்கான இறுதி ரிசல்ட் சீட்:</strong> இணைக்கப்பட்டுள்ளது.</p>
-            <button onclick="alert('ரிசல்ட் சீட் பதிவிறக்கம் செய்யப்படுகிறது...')">ரிசல்ட் சீட்டைப் பார்க்க / டவுன்லோட் செய்ய</button>
+            <h3>📊 ரிசல்ட் சீட்</h3>
+            <button onclick="alert('ரிசல்ட் சீட் டவுன்லோட் ஆகிறது...')">ஆண்டு இறுதி ரிசல்ட் சீட் பார்க்க</button>
         </div>
 
         <button class="logout-btn" onclick="logout()">வெளியேறு (Logout)</button>
     </div>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+    <!-- 3. ஆசிரியர் டேஷ்போர்டு -->
+    <div class="dashboard" id="teacherDashboard">
+        <div class="profile-header">
+            <div class="avatar">👨‍🏫</div>
+            <div class="profile-name">திரு. முருகன்</div>
+            <div class="profile-id">கணித ஆசிரியர் (Teacher ID: TCH202)</div>
+        </div>
+        <div class="section">
+            <h3>📢 புதிய போஸ்ட் பதிவிட</h3>
+            <textarea placeholder="அறிவிப்புகளை இங்கே எழுதவும்..." rows="3"></textarea>
+            <button onclick="alert('போஸ்ட் வெற்றிகரமாகப் பதிவிடப்பட்டது!')">போஸ்ட் வெளியிடு</button>
+        </div>
+        <button class="logout-btn" onclick="logout()">வெளியேறு (Logout)</button>
+    </div>
+
+    <!-- 4. பள்ளி நிர்வாகம் (School Admin) டேஷ்போர்டு -->
+    <div class="dashboard" id="schoolDashboard">
+        <div class="profile-header">
+            <div class="avatar">🏫</div>
+            <div class="profile-name">பள்ளி நிர்வாகம்</div>
+            <div class="profile-id">System Administrator</div>
+        </div>
+        <div class="section">
+            <h3>⚙️ நிர்வாகக் கட்டுப்பாடுகள்</h3>
+            <p style="font-size: 13px;">மாணவர்கள் மற்றும் ஆசிரியர்களைப் பதிவு செய்யும் பகுதி.</p>
+            <button onclick="alert('புதிய மாணவர் சேர்க்கை பக்கம் திறக்கப்படுகிறது...')">மாணவர் சேர்</button>
+        </div>
+        <button class="logout-btn" onclick="logout()">வெளியேறு (Logout)</button>
+    </div>
+
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        var role = document.getElementById('role').value;
+        var user = document.getElementById('username').value.trim();
+        var pass = document.getElementById('password').value.trim();
+
+        // அட்மின் லாகின் சோதனை (எல்லா ரோலுக்கும் admin / admin)
+        if (user === "admin" && pass === "admin") {
+            document.getElementById('loginCard').style.display = 'none';
             
-            var role = document.getElementById('role').value;
-            var user = document.getElementById('username').value.trim();
-            var pass = document.getElementById('password').value.trim();
-
-            // டெஸ்டிங்கிற்காக admin / admin என வைக்கப்பட்டுள்ளது
-            if (user === "admin" && pass === "admin") {
-                document.getElementById('loginCard').style.display = 'none';
-                if (role === 'parent') {
-                    document.getElementById('parentDashboard').style.display = 'block';
-                } else {
-                    alert(role + " டேஷ்போர்டு விரைவில் திறக்கப்படும்!");
-                }
-            } else {
-                alert("தவறான பயனர் பெயர் அல்லது கடவுச்சொல்! (admin / admin என முயற்சிக்கவும்)");
+            if (role === 'parent') {
+                document.getElementById('parentDashboard').style.display = 'block';
+            } else if (role === 'teacher') {
+                document.getElementById('teacherDashboard').style.display = 'block';
+            } else if (role === 'school') {
+                document.getElementById('schoolDashboard').style.display = 'block';
             }
-        });
-
-        function toggleTeacherStats() {
-            var stats = document.getElementById('teacherStats');
-            stats.style.display = (stats.style.display === "none") ? "block" : "none";
+        } else {
+            alert("தவறான பயனர் பெயர் அல்லது கடவுச்சொல்! (admin / admin என முயற்சிக்கவும்)");
         }
+    });
 
-        function logout() {
-            document.getElementById('parentDashboard').style.display = 'none';
-            document.getElementById('loginCard').style.display = 'block';
-            document.getElementById('username').value = '';
-            document.getElementById('password').value = '';
-        }
-    </script>
+    function logout() {
+        document.querySelectorAll('.dashboard').forEach(el => el.style.display = 'none');
+        document.getElementById('loginCard').style.display = 'block';
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+    }
+</script>
 
 </body>
 </html>
