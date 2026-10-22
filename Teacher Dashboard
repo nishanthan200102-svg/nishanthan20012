@@ -1,0 +1,109 @@
+<!-- டீச்சர் டேஷ்போர்டு பகுதி -->
+<div class="teacher-dashboard" style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+    
+    <!-- 1. மேலே தேடல் பட்டி (Search Bar) -->
+    <div style="margin-bottom: 20px; display: flex; gap: 10px;">
+        <input type="text" id="studentIndexSearch" placeholder="மாணவரின் இன்டெக்ஸ் நம்பரை உள்ளிடவும்" style="padding: 8px; width: 300px;">
+        <button onclick="findStudentForTeacher()" style="padding: 8px 15px; background: #007BFF; color: white; border: none; border-radius: 4px; cursor: pointer;">மாணவரைத் தேடு</button>
+    </div>
+
+    <!-- 2. ஸ்கூல் போஸ்ட் போடும் பகுதி (School/Teacher Post Section) -->
+    <div style="background: #f9f9f9; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
+        <h4>பள்ளி நிகழ்வுகள் / போஸ்ட் பதிவிட</h4>
+        <textarea id="postContent" placeholder="இங்கு செய்தியைத் தட்டச்சு செய்யவும்..." style="width: 100%; height: 80px; padding: 8px; margin-bottom: 10px;"></textarea>
+        <input type="file" id="postMedia" style="margin-bottom: 10px;"><br>
+        <button onclick="publishPost()" style="padding: 8px 15px; background: #28A745; color: white; border: none; border-radius: 4px; cursor: pointer;">போஸ்ட் செய்க</button>
+    </div>
+
+    <!-- 3. ஆசிரியரின் சுயவிவரம் மற்றும் மாணவர் பட்டியல் (Teacher Profile & Assigned Students) -->
+    <div style="display: flex; gap: 20px;">
+        <div style="flex: 1; background: #fff; padding: 15px; border: 1px solid #ccc; border-radius: 6px;">
+            <h4>ஆசிரியர் சுயவிவரம் (Teacher Profile)</h4>
+            <p><strong>பெயர்:</strong> திரு. ரமேஷ்</p>
+            <p><strong>ஒதுக்கப்பட்ட மொத்த மாணவர்கள்:</strong> <span id="totalStudentsCount">25</span></p>
+            <h5>கண்காணிப்பில் உள்ள மாணவர்கள்:</h5>
+            <ul id="assignedStudentsList" style="list-style-type: none; padding: 0;">
+                <li style="padding: 5px 0; border-bottom: 1px solid #eee; cursor: pointer; color: #007BFF;" onclick="loadStudentProfile('IND101')">IND101 - அருண் (தரம் 10)</li>
+                <li style="padding: 5px 0; border-bottom: 1px solid #eee; cursor: pointer; color: #007BFF;" onclick="loadStudentProfile('IND102')">IND102 - பிரியா (தரம் 10)</li>
+            </ul>
+        </div>
+
+        <!-- 4. மாணவர் விவரம் மற்றும் பெற்றோருடன் தொடர்பு கொள்ளும் பகுதி (Student Profile & Parent Chat) -->
+        <div id="studentChatSection" style="flex: 2; background: #fff; padding: 15px; border: 1px solid #ccc; border-radius: 6px; display: none;">
+            <h4 id="profileTitle">மாணவர் விவரம் & பெற்றோர் தொடர்பு</h4>
+            <div id="studentBio" style="margin-bottom: 15px; background: #f1f1f1; padding: 10px; border-radius: 4px;">
+                <!-- மாணவரின் தகவல்கள் இங்கே தோன்றும் -->
+            </div>
+
+            <!-- எஸ்எம்எஸ், போட்டோ, வாய்ஸ் மெசேஜ் அனுப்பும் அரட்டை பகுதி -->
+            <div style="border: 1px solid #ddd; padding: 10px; border-radius: 4px;">
+                <h5>பெற்றோருக்குச் செய்தி அனுப்ப (Parent Chat)</h5>
+                <div id="chatMessages" style="height: 120px; overflow-y: auto; border: 1px solid #eee; padding: 5px; margin-bottom: 10px; background: #fff;">
+                    <p style="color: gray; font-size: 12px;">உரையாடல் தொடங்கப்படவில்லை...</p>
+                </div>
+                <input type="text" id="chatTextMessage" placeholder="செய்தியைத் தட்டச்சு செய்யவும்..." style="width: 70%; padding: 6px;">
+                <button onclick="sendParentMessage('text')" style="padding: 6px 10px; background: #007BFF; color: white; border: none; border-radius: 3px;">அனுப்பு</button>
+                <div style="margin-top: 8px; display: flex; gap: 10px; align-items: center;">
+                    <label style="font-size: 13px; cursor: pointer;">📁 போட்டோ அனுப்பு: <input type="file" id="chatPhoto" style="display:none;" onchange="sendParentMessage('photo')"></label>
+                    <button onclick="sendParentMessage('voice')" style="background: #ffc107; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">🎙️ வாய்ஸ் மெசேஜ்</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// மாணவரைத் தேடும் மற்றும் விவரங்களைக் காட்டும் லொஜிக்
+function findStudentForTeacher() {
+    var index = document.getElementById('studentIndexSearch').value.trim();
+    if(index === "") {
+        alert("தயவுசெய்து இன்டெக்ஸ் நம்பரை உள்ளிடவும்!");
+        return;
+    }
+    loadStudentProfile(index);
+}
+
+function loadStudentProfile(indexNo) {
+    var chatSection = document.getElementById('studentChatSection');
+    var bioDiv = document.getElementById('studentBio');
+    
+    chatSection.style.display = "block";
+    
+    // தற்காலிகமாக தரவுகளை ஏற்றுதல் (டேட்டாபேஸ் இணைப்பின் மூலம் இது மாறும்)
+    bioDiv.innerHTML = `
+        <p><strong>இன்டெக்ஸ் நம்பர்:</strong> ${indexNo}</p>
+        <p><strong>மாணவர் பெயர்:</strong> குமார் (எடுத்துக்காட்டு)</p>
+        <p><strong>பெற்றோர் பெயர்:</strong> செல்வம் (தந்தை)</p>
+        <p><strong>தரம்:</strong> 10-ஆம் வகுப்பு</p>
+    `;
+    
+    document.getElementById('profileTitle').innerText = "சுயவிவரம் & பெற்றோர் தொடர்பு: " + indexNo;
+}
+
+// போஸ்ட் செய்யும் பகுதி
+function publishPost() {
+    var content = document.getElementById('postContent').value;
+    if(content.trim() === "") {
+        alert("செய்தி காலியாக இருக்கக்கூடாது!");
+        return;
+    }
+    alert("பள்ளி நிகழ்வு வெற்றிகரமாகப் பதிவிடப்பட்டது!");
+    document.getElementById('postContent').value = "";
+}
+
+// பெற்றோருக்குச் செய்தி அனுப்பும் வசதி (SMS, Photo, Voice)
+function sendParentMessage(type) {
+    var chatMsgs = document.getElementById('chatMessages');
+    if(type === 'text') {
+        var textInput = document.getElementById('chatTextMessage');
+        if(textInput.value.trim() === "") return;
+        chatMsgs.innerHTML += `<p style="margin: 5px 0; text-align: right;"><strong>ஆசிரியர்:</strong> ${textInput.value}</p>`;
+        textInput.value = "";
+    } else if(type === 'photo') {
+        chatMsgs.innerHTML += `<p style="margin: 5px 0; text-align: right;"><strong>ஆசிரியர்:</strong> [புகைப்படம் அனுப்பப்பட்டுள்ளது]</p>`;
+    } else if(type === 'voice') {
+        chatMsgs.innerHTML += `<p style="margin: 5px 0; text-align: right;"><strong>ஆசிரியர்:</strong> 🎙️ [வாய்ஸ் மெசேஜ் அனுப்பப்பட்டுள்ளது]</p>`;
+    }
+    chatMsgs.scrollTop = chatMsgs.scrollHeight;
+}
+</script>
